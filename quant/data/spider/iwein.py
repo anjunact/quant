@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from datetime import datetime
 # from lxml import etree
 import  os,sys
 from  os.path import  dirname
@@ -20,16 +22,18 @@ def start(stocks):
         html = driver.page_source
         soup = BeautifulSoup(html, 'lxml')
         tds = soup.select(".zcwylw_table tbody tr td")
-        if len(tds)>3:
+        if len(tds)>4:
             for e in tds:
                 print(e.text)
-            stock.buttom = float(tds[0].text)
-            stock.top = float(tds[1].text)
-            stock.up = float(tds[2].text)
-            stock.down = float(tds[3].text)
+            print('--------------')
+            stock.price = float(tds[0].text)
+            stock.buttom = float(tds[1].text)
+            stock.top = float(tds[2].text)
+            stock.up = float(tds[3].text)
+            stock.down = float(tds[4].text)
             db.session.add(stock)
+            stock.updated=datetime.utcnow()
             db.session.commit()
-
 
 
     #xpath

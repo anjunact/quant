@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import xlrd
 
 def open_excel(file= 'file.xls'):

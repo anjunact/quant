@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from . import db
 class Stock(db.Model):
     id = db.Column(db.Integer, primary_key=True)

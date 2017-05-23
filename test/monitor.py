@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 import tushare as ts
 import pandas as pd
+
 
 stocks = ['002158','002342','600717','600803','601000']
 buy_prices = [21.05,10.03,13.75,13.85,5.85]

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 # from .models import Stock
@@ -8,10 +9,12 @@ class Stock(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     code = db.Column(db.String(20), unique=True)
     name = db.Column(db.String(20), unique=True)
+    price= db.Column(db.FLOAT(10))
     buttom = db.Column(db.FLOAT(10))
     top = db.Column(db.FLOAT(10))
     up = db.Column(db.FLOAT(10))
     down = db.Column(db.FLOAT(10))
+    updated = db.Column(db.DateTime)
     def __init__(self, code, name):
         self.code = code
         self.name = name
